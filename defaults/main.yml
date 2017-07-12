@@ -1,0 +1,19 @@
+---
+mailrelay_enabled: no
+mailrelay_helpers_enabled: no
+mailrelay_relayhost_maps:
+  - name: "{{ mailrelay_default_sender_email }}"
+    target: "[{{ mailrelay_default_sender_server }}]:{{ mailrelay_default_sender_server_port }}"
+mailrelay_sasl_passwords:
+  - name: "{{ mailrelay_default_sender_email }}"
+    target: "{{ mailrelay_default_sender_user }}:{{ mailrelay_default_sender_password }}"
+mailrelay_sender_canonical_maps:
+  - name: "root"
+    target: "{{ mailrelay_default_sender_email }}"
+mailrelay_aliases:
+  - name: root
+    target: "{{mailrelay_default_monitoring_recipient }}"
+mailrelay_maximal_queue_lifetime: 1d
+mailrelay_bounce_queue_lifetime: 1d
+mailrelay_bounce_notice_recipient: False
+mailrelay_enforce_tls: True

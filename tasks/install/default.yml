@@ -1,0 +1,33 @@
+---
+- name: set debconf main_mailer_type
+  debconf:
+    name: postfix
+    question: postfix/main_mailer_type
+    vtype: string 
+    value: Internet Site
+
+- name: set debconf mailname
+  debconf:
+    name: postfix
+    question: postfix/mailname
+    type: string
+    value: '{{ inventory_hostname }}'
+
+- name: install helpers
+  when: mailrelay_helpers_enabled
+  apt:
+    pkg: mailutils
+    state: installed
+  tags:
+    - helper
+
+- name: install postfix packages
+  apt:
+    pkg: "{{ mailrelay_package }}"
+    state: installed
+  with_items:
+    - postfix
+    - libsasl2-modules
+  loop_control:
+    loop_var: mailrelay_package
+
