@@ -1,0 +1,41 @@
+---
+- name: template /etc/mailname
+  lineinfile:
+    line: "{{ inventory_hostname }}"
+    path: /etc/mailname
+    owner: root
+    group: root
+    mode: 640
+  notify:
+    - mailrelay reload postfix
+
+- name: template /etc/postfix/main.cf
+  template:
+    src: "etc/postfix/main.cf.j2"
+    dest: "/etc/postfix/main.cf"
+  notify:
+    - mailrelay reload postfix
+
+- name: template the postmap files
+  template:
+    src: "{{ mailrelay_postmap_tpl_item }}.j2"
+    dest: "/{{ mailrelay_postmap_tpl_item }}"
+  with_items:
+    - etc/postfix/relayhost-maps
+    - etc/postfix/sasl-passwords
+    - etc/postfix/sender-canonical-maps
+  loop_control:
+    loop_var: mailrelay_postmap_tpl_item
+  notify:
+    - mailrelay postmap postfix
+
+- name: template the /etc/aliases file
+  lineinfile:
+    path: /etc/aliases
+    regexp: '^{{ alias_item.name }}: '
+    line: '{{ alias_item.name }}: {{ alias_item.target }}'
+  with_items: '{{ mailrelay_aliases }}'
+  loop_control:
+    loop_var: alias_item
+  notify: mailrelay newaliases
+

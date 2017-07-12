@@ -1,0 +1,18 @@
+galaxy_info:
+  author: Peter Thurner
+  company: Blunix GmbH
+  license: Apache
+  min_ansible_version: 1.2
+
+  platforms:
+  - name: Debian
+    versions:
+    - jessie
+  - name: Ubuntu
+    versions:
+    - Xenial
+
+  galaxy_tags:
+    - blunix
+    - postfix
+    - mailrelay

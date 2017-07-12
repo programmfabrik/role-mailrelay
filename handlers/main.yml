@@ -1,0 +1,19 @@
+---
+- name: mailrelay postmap postfix
+  command: "postmap {{ postfix_tpl_item }}"
+  with_items: 
+    - '/etc/postfix/relayhost-maps'
+    - '/etc/postfix/sasl-passwords'
+    - '/etc/postfix/sender-canonical-maps'
+  loop_control:
+    loop_var: postfix_tpl_item
+  notify:
+    - mailrelay newaliases
+
+- name: mailrelay newaliases
+  command: newaliases
+
+- name: mailrelay reload postfix
+  service:
+    name: postfix
+    state: reloaded

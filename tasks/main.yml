@@ -1,0 +1,8 @@
+---
+- include: mailrelay.yml
+  when: mailrelay_enabled
+  tags:
+    - postfix
+    - mail
+    - mail-relay
+

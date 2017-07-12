@@ -1,0 +1,7 @@
+# {{ ansible_managed }}
+
+{% for sender_can_maps_item in mailrelay_sender_canonical_maps %}
+{{ sender_can_maps_item.name }} {{ sender_can_maps_item.target }}
+{{ sender_can_maps_item.name }}@{{ inventory_hostname_short }} {{ sender_can_maps_item.target }}
+{{ sender_can_maps_item.name }}@{{ inventory_hostname }} {{ sender_can_maps_item.target }}
+{% endfor %}
