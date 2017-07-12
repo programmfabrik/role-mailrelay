@@ -10,7 +10,7 @@
   debconf:
     name: postfix
     question: postfix/mailname
-    type: string
+    vtype: string
     value: '{{ inventory_hostname }}'
 
 - name: install helpers
