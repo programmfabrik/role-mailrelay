@@ -1,4 +1,4 @@
-# {{ ansible_managed }}
+{{ ansible_managed | comment }}
 
 {% for sender_can_maps_item in mailrelay_sender_canonical_maps %}
 {{ sender_can_maps_item.name }} {{ sender_can_maps_item.target }}
