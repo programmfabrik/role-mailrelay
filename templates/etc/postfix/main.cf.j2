@@ -19,11 +19,12 @@ smtp_sasl_mechanism_filter = 		digest-md5, plain, login
 smtp_sasl_security_options =            noanonymous
 smtp_sasl_password_maps = 		hash:/etc/postfix/sasl-passwords
 {% if mailrelay_enforce_tls == True %}
+# Disable plaintext - always use TLS
 smtp_use_tls =                          yes
 smtp_tls_enforce_peername =             no
 smtp_tls_session_cache_database =	btree:${data_directory}/smtp_scache
-# Disable plaintext - always use TLS
-smtp_tls_security_level =               may
+smtp_tls_wrappermode =                  yes
+smtp_tls_security_level =               encrypt
 smtp_tls_mandatory_ciphers =            medium
 smtp_tls_mandatory_protocols =          !SSLv2, !TLSv1
 {% endif %}

@@ -5,7 +5,7 @@
     path: /etc/mailname
     owner: root
     group: root
-    mode: 0640
+    mode: 0644
   notify:
     - mailrelay reload postfix
 
@@ -20,6 +20,9 @@
   template:
     src: "{{ mailrelay_postmap_tpl_item }}.j2"
     dest: "/{{ mailrelay_postmap_tpl_item }}"
+    owner: root
+    group: root
+    mode: 0640
   with_items:
     - etc/postfix/relayhost-maps
     - etc/postfix/sasl-passwords
