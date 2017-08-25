@@ -27,6 +27,7 @@
     - etc/postfix/relayhost-maps
     - etc/postfix/sasl-passwords
     - etc/postfix/sender-canonical-maps
+    - etc/postfix/sender-canonical-maps-regex
   loop_control:
     loop_var: mailrelay_postmap_tpl_item
   notify:
