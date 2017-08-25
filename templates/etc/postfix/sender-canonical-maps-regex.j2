@@ -1,0 +1,4 @@
+{{ ansible_managed | comment }}
+
+/^(.*@){{ inventory_hostname_short }}$/     {{ mailrelay_default_sender_email }}
+/^(.*@){{ inventory_hostname }}$/           {{ mailrelay_default_sender_email }}
