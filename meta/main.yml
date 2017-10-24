@@ -16,3 +16,5 @@ galaxy_info:
     - blunix
     - postfix
     - mailrelay
+
+dependencies: []
