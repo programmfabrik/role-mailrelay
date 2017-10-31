@@ -13,8 +13,8 @@ galaxy_info:
     - Xenial
 
   galaxy_tags:
-    - blunix
-    - postfix
-    - mailrelay
+  - blunix
+  - postfix
+  - mailrelay
 
 dependencies: []

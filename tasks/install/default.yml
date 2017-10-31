@@ -3,7 +3,7 @@
   debconf:
     name: postfix
     question: postfix/main_mailer_type
-    vtype: string 
+    vtype: string
     value: Internet Site
 
 - name: set debconf mailname
@@ -30,4 +30,3 @@
     - libsasl2-modules
   loop_control:
     loop_var: mailrelay_package
-

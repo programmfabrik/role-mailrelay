@@ -42,4 +42,3 @@
   loop_control:
     loop_var: alias_item
   notify: mailrelay newaliases
-

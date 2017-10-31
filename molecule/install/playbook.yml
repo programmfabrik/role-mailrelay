@@ -1,0 +1,25 @@
+---
+- name: Converge
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      become: True
+      changed_when: False
+
+- name: Converge
+  hosts: all
+  become: yes
+  vars:
+    mailrelay_enabled: yes
+    mailrelay_helpers_enabled: yes
+    mailrelay_default_sender_email: "server@example.com"
+    mailrelay_default_sender_user: "ServerExampleCom"
+    mailrelay_default_sender_password: "verylongpassword"
+    mailrelay_default_sender_server: "smtp.gmail.com"
+    mailrelay_default_sender_server_port: "587"
+    mailrelay_default_monitoring_recipient: "monitoring-alerts@exampe.com"
+    mailrelay_bounce_notice_recipient: no
+  roles:
+    - role: role-mailrelay
