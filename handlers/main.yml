@@ -1,7 +1,7 @@
 ---
 - name: mailrelay postmap postfix
   command: "postmap {{ postfix_tpl_item }}"
-  with_items: 
+  with_items:
     - '/etc/postfix/relayhost-maps'
     - '/etc/postfix/sasl-passwords'
     - '/etc/postfix/sender-canonical-maps'

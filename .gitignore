@@ -1,5 +1,8 @@
 
-# Created by https://www.gitignore.io/api/python,pycharm,linux,vim,nano
+# Created by https://www.gitignore.io/api/linux,python,pycharm,ansible,vim,nano
+
+### Ansible ###
+*.retry
 
 ### Linux ###
 *~
@@ -199,6 +202,5 @@ Session.vim
 # auto-generated tag files
 tags
 
-# End of https://www.gitignore.io/api/python,pycharm,linux,vim,nano
-
+# End of https://www.gitignore.io/api/linux,python,pycharm,ansible,vim,nano
 .idea/
