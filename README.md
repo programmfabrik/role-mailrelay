@@ -1,5 +1,4 @@
-Ansible Role postfix mailrelay
-====================
+# Ansible Role postfix mailrelay
 
 This role installs and configures a postfix mailrelay.
 
@@ -14,11 +13,10 @@ to reliably send out e-mails.
 The variables used by this role should be self-explanatory for anyone
 with a Postfix background.
 
-Example play
-------------
+# Example play
 
 ```yaml
-- hosts: dm.public-debian.vagrant
+- hosts: mx-relays
   vars:
     mailrelay_default_sender_email: "server@example.com"
     mailrelay_default_sender_user: "ServerExampleCom"
@@ -65,42 +63,26 @@ Example play
     - blunix.role-mailrelay
 ```
 
- Usage
-----------
-Try sending mail:
-```bash
-user@host~$ echo test | mail -s "Test subject" myname@example.com
-root@host~# tail -f /var/log/mail.???
-```
+# License
 
-If you want to send using multiple sender addresses, specify a sender address (MAIL FROM) via sendmail. This formula can be configured to detect the specified sender address and relay the Email via a corresponding mail server.
+Apache-2.0
 
-```bash
-sendmail -f sender@example.com -t <<EOF
-To: recipient@example.com
-Subject: Sender dependent sending test
-Content-type: text/html
+# License
 
-<b>A test text</b>
+Apache-2.0
 
-EOF
-```
+# Author Information
 
-License
-=======
-
-Apache
-
-Author Information
-==================
-
-Service and support for orchestrated hosting environments, continuous integration/deployment/delivery and various Linux and open-source technology stacks are available from:
+Service and support for orchestrated hosting environments,
+continuous integration/deployment/delivery and various Linux
+and open-source technology stacks are available from:
 
 ```
-Blunix GmbH - Professional Linux Service
+Blunix GmbH - Consulting for Linux Hosting 24/7
 Glogauer Straße 21
 10999 Berlin - Germany
 
 Web: www.blunix.org
-Email: mailto:service@blunix.org
+Email: service[at]blunix.org
+Phone: (+49) 30 / 12 08 39 90
 ```
