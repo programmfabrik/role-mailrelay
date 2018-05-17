@@ -17,7 +17,7 @@
   when: mailrelay_helpers_enabled
   apt:
     pkg: mailutils
-    state: installed
+    state: present
   tags:
     - helper
 
@@ -26,4 +26,4 @@
     pkg:
       - postfix
       - libsasl2-modules
-    state: installed
+    state: present
