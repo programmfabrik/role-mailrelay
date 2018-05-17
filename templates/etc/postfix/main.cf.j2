@@ -10,6 +10,7 @@ bounce_queue_lifetime = {{ mailrelay_bounce_queue_lifetime }}
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
 {%- if mailrelay_bounce_notice_recipient %}
 bounce_notice_recipient = {{ mailrelay_bounce_notice_recipient }}
+notify_classes = bounce, resource, software
 {% endif %}
 
 ## SMTP Settings
