@@ -17,14 +17,14 @@
   when: mailrelay_helpers_enabled
   apt:
     pkg: mailutils
-    state: installed
+    state: present
   tags:
     - helper
 
 - name: install postfix packages
   apt:
     pkg: "{{ mailrelay_package }}"
-    state: installed
+    state: present
   with_items:
     - postfix
     - libsasl2-modules
