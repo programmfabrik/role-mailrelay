@@ -8,10 +8,12 @@ append_dot_mydomain = no
 maximal_queue_lifetime = {{ mailrelay_maximal_queue_lifetime }}
 bounce_queue_lifetime = {{ mailrelay_bounce_queue_lifetime }}
 smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated defer_unauth_destination
-{%- if mailrelay_bounce_notice_recipient %}
+{% if mailrelay_bounce_notice_recipient %}
 bounce_notice_recipient = {{ mailrelay_bounce_notice_recipient }}
 notify_classes = bounce, resource, software
 {% endif %}
+inet_protocols = ipv4
+
 
 ## SMTP Settings
 smtp_sender_dependent_authentication = yes
