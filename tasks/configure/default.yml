@@ -14,7 +14,7 @@
     src: "etc/postfix/main.cf.j2"
     dest: "/etc/postfix/main.cf"
   notify:
-    - mailrelay reload postfix
+    - mailrelay restart postfix
 
 - name: template the postmap files
   template:
