@@ -1,7 +1,7 @@
 ---
 - name: template /etc/mailname
   copy:
-    content: "{{ inventory_hostname }}"
+    content: "{{ mailrelay_myhostname }}"
     dest: /etc/mailname
     owner: root
     group: root
