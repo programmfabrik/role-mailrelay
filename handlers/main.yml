@@ -17,3 +17,8 @@
   service:
     name: postfix
     state: reloaded
+
+- name: mailrelay restart postfix
+  service:
+    name: postfix
+    state: restarted
