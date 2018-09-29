@@ -17,3 +17,5 @@ mailrelay_maximal_queue_lifetime: 1d
 mailrelay_bounce_queue_lifetime: 1d
 mailrelay_bounce_notice_recipient: False
 mailrelay_enforce_tls: True
+mailrelay_myhostname: "{{ ansible_hostname }}"
+mailrelay_myhostname_short: "{{ ansible_hostname_short }}"

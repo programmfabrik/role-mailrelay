@@ -11,7 +11,7 @@
     name: postfix
     question: postfix/mailname
     vtype: string
-    value: '{{ inventory_hostname }}'
+    value: '{{ mailrelay_myhostname }}'
 
 - name: install helpers
   when: mailrelay_helpers_enabled

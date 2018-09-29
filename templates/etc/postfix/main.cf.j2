@@ -34,7 +34,7 @@ smtp_tls_mandatory_protocols = !SSLv2, !TLSv1
 ## Hostname settings
 myhostname = {{ mailrelay_myhostname }}
 myorigin = /etc/mailname
-mydestination = {{ inventory_hostname }}, {{ inventory_hostname_short }}, localhost.localdomain, localhost
+mydestination = {{ mailrelay_myhostname }}, {{ mailrelay_myhostname_short }}, localhost.localdomain, localhost
 mynetworks = 127.0.0.0/8
 inet_interfaces = 127.0.0.1
 
