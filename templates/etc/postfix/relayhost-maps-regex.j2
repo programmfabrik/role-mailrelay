@@ -1,0 +1,5 @@
+{{ ansible_managed | comment }}
+
+{% for relayhost_item in mailrelay_relayhost_maps_regex %}
+/{{ relayhost_item.name }}/ {{ relayhost_item.target }}
+{% endfor %}

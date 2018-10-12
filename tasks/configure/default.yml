@@ -1,11 +1,12 @@
 ---
 - name: template /etc/mailname
   lineinfile:
-    line: "{{ inventory_hostname }}"
+    line: "{{ mailrelay_mailname }}"
     path: /etc/mailname
     owner: root
     group: root
     mode: 0644
+    create: yes
   notify:
     - mailrelay reload postfix
 
@@ -25,6 +26,7 @@
     mode: 0640
   with_items:
     - etc/postfix/relayhost-maps
+    - etc/postfix/relayhost-maps-regex
     - etc/postfix/sasl-passwords
     - etc/postfix/sender-canonical-maps
     - etc/postfix/sender-canonical-maps-regex

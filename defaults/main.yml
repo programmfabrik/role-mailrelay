@@ -1,9 +1,14 @@
 ---
 mailrelay_enabled: no
+mailrelay_mailname: "{{ inventory_hostname }}"
+mailrelay_mailer_type: "Internet Site"
+mailrelay_my_networks: "127.0.0.0/8"
+mailrelay_inet_interfaces: "127.0.0.1"
 mailrelay_helpers_enabled: no
 mailrelay_relayhost_maps:
   - name: "{{ mailrelay_default_sender_email }}"
     target: "[{{ mailrelay_default_sender_server }}]:{{ mailrelay_default_sender_server_port }}"
+mailrelay_relayhost_maps_regex: []
 mailrelay_sasl_passwords:
   - name: "{{ mailrelay_default_sender_email }}"
     target: "{{ mailrelay_default_sender_user }}:{{ mailrelay_default_sender_password }}"
