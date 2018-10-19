@@ -30,14 +30,14 @@ smtp_tls_mandatory_protocols = !SSLv2, !TLSv1
 {% endif %}
 
 ## Hostname settings
-myhostname = {{ inventory_hostname }}
+myhostname = {{ mailrelay_myhostname }}
 myorigin = /etc/mailname
-mydestination = {{ inventory_hostname }}, {{ inventory_hostname_short }}, localhost.localdomain, localhost
+mydestination = {{ mailrelay_myhostname }}, {{ mailrelay_myhostname_short }}, localhost.localdomain, localhost
 mynetworks = {{ mailrelay_my_networks }}
 inet_interfaces = {{ mailrelay_inet_interfaces }}
 
 ## Relayhost settings
 sender_canonical_maps = hash:/etc/postfix/sender-canonical-maps, regexp:/etc/postfix/sender-canonical-maps-regex
-sender_dependent_relayhost_maps = hash:/etc/postfix/relayhost-maps, regexp:/etc/postfix/relayhost-maps
+sender_dependent_relayhost_maps = hash:/etc/postfix/relayhost-maps, regexp:/etc/postfix/relayhost-maps-regex
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases

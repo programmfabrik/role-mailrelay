@@ -1,5 +1,7 @@
 ---
 mailrelay_enabled: no
+mailrelay_myhostname: "{{ inventory_hostname }}"
+mailrelay_myhostname_short: "{{ mailrelay_myhostname.split('.')[0] }}"
 mailrelay_mailname: "{{ inventory_hostname }}"
 mailrelay_mailer_type: "Internet Site"
 mailrelay_my_networks: "127.0.0.0/8"
