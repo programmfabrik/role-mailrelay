@@ -14,6 +14,7 @@ bounce_notice_recipient = {{ mailrelay_bounce_notice_recipient }}
 
 ## SMTP Settings
 smtp_sender_dependent_authentication = yes
+smtp_address_preference = ipv4
 smtp_sasl_auth_enable = yes
 smtp_sasl_mechanism_filter = digest-md5, plain, login
 smtp_sasl_security_options = noanonymous
