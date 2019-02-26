@@ -1,5 +1,4 @@
 ---
-mailrelay_enabled: no
 mailrelay_helpers_enabled: no
 mailrelay_relayhost_maps:
   - name: "{{ mailrelay_default_sender_email }}"

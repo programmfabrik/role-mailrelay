@@ -23,10 +23,7 @@
 
 - name: install postfix packages
   apt:
-    pkg: "{{ mailrelay_package }}"
+    pkg:
+      - postfix
+      - libsasl2-modules
     state: installed
-  with_items:
-    - postfix
-    - libsasl2-modules
-  loop_control:
-    loop_var: mailrelay_package

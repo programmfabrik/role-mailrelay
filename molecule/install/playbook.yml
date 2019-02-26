@@ -12,7 +12,6 @@
   hosts: all
   become: yes
   vars:
-    mailrelay_enabled: yes
     mailrelay_helpers_enabled: yes
     mailrelay_default_sender_email: "server@example.com"
     mailrelay_default_sender_user: "ServerExampleCom"
